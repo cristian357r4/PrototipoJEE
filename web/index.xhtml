@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"     
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <style>
+            .employeeTable {   
+   border-collapse:collapse;
+   border:1px solid #000000;
+}
+
+.employeeTableHeader {
+   text-align:center;
+   background:none repeat scroll 0 0 #B5B5B5;
+   border-bottom:1px solid #000000;  
+   padding:2px;
+}
+
+.employeeTableOddRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFFF;	
+}
+
+.employeeTableEvenRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #D3D3D3;
+}
+
+        </style>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library = "css" name = "table.css"  />
+    </h:head>
+    <h:body>        
+        <h:form>
+            <h:dataTable border="2" value="#{controlPrestamos.findAll()}" var="prestamos"
+                        styleClass = "employeeTable"
+                        headerClass = "employeeTableHeader"
+                        rowClasses = "employeeTableOddRow,employeeTableEvenRow">
+                <h:column>
+                    <f:facet name="header">Id Prestamos</f:facet>
+                    #{prestamos.idPrestamo}
+                    
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Folio</f:facet>
+                    #{prestamos.idPrestamo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">No Cuenta</f:facet>
+                    #{prestamos.nocuenta}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Id Patrimonial</f:facet>
+                    #{prestamos.idPatrimonial}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Fecha de Prestamo</f:facet>
+                    #{prestamos.fechaPrestamo}
+                </h:column>                                
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
